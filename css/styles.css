@@ -631,20 +631,11 @@ ul {
   fill: var(--primary-white-color);
 }
 
-/* .mailing-title {
-  margin-top: 83px;
-} */
-.mailing-list {
-  margin-top: 83px;
-}
-
 .mailing-wrap {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
-.mailing-label {
-}
+
 .mailing-input {
   width: 358px;
   height: 50px;
@@ -678,9 +669,15 @@ ul {
   background: var(--accent-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  transform: scaleX(1) scaleY(1);
+  transition: transform var(--animate);
 }
-.button {
+
+.mailing-btn:hover,
+.mailing-btn:focus {
+  transform: scaleX(0.95) scaleY(0.95);
 }
+
 .icon-send {
   margin-left: 10px;
 }
@@ -735,8 +732,14 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: color var(--animate);
+  transition: color var(--animate), fill var(--animate);
 }
+
+.close:hover .icon-modal,
+.close:focus .icon-modal {
+  fill: var(--accent-color);
+}
+
 .icon-modal {
   width: 100%;
   height: 100%;
@@ -762,7 +765,6 @@ ul {
 }
 
 .form-field {
-  position: relative;
   display: block;
   margin-bottom: 10px;
 }
@@ -774,8 +776,6 @@ ul {
   letter-spacing: 0.01em;
   color: var(--primary-text-color);
   margin-bottom: 4px;
-
-  /* margin-top: 10px; */
 }
 
 .modal-input {
@@ -790,16 +790,33 @@ ul {
   padding-bottom: 11px;
   padding-left: 42px;
   padding-right: 12px;
+  transition: border-color var(--animate), box-shadow var(--animate);
+  cursor: pointer;
 }
 
-/* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+.modal-input:hover,
+.modal-input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px; */
+}
+
+.modal-input:hover + svg,
+.modal-input:focus + svg {
+  color: var(--accent-color);
+}
+
+.input-wrapper {
+  position: relative;
+}
+
 .icon-form {
   position: absolute;
-  top: 26px;
+  top: 50%;
   left: 11px;
+  transform: translateY(-50%);
   fill: currentColor;
+  transition: fill var(--animate);
 }
 
 .modal-text {
@@ -813,9 +830,61 @@ ul {
   letter-spacing: 0.01em;
   color: rgba(117, 117, 117, 0.5);
   resize: none;
+}
+
+.form-field:nth-child(4) {
   margin-bottom: 20px;
 }
 
+.form-field:nth-child(5) {
+  margin-bottom: 30px;
+}
+
+.policy-input {
+  display: block;
+  transition: border var(--animate), background-color var(--animate),
+    fill var(--animate);
+}
+
+label.modal-policy-label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  padding: 0 12px;
+}
+
+.policy-input-check {
+  width: 16px;
+  height: 15px;
+  background-color: var(--primary-white-color);
+  border-radius: 2px;
+  border: 0.2px solid var(--title-text-color);
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.policy-input-check svg {
+  fill: transparent;
+}
+
+.policy-link {
+  color: var(--accent-color);
+  margin-left: 2px;
+}
+.policy-input:checked + label > span {
+  border: none;
+  background-color: var(--accent-color);
+}
+
+.policy-input:checked + label > span svg {
+  fill: var(--primary-white-color);
+}
 .modal-form .send {
   width: 200px;
   height: 50px;
@@ -835,3 +904,7 @@ ul {
   border-radius: 4px;
   margin: 0 auto;
 }
+
+/* .send:hover,
+.send:focus {
+} */
