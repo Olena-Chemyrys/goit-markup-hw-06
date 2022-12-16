@@ -802,7 +802,6 @@ ul {
     0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.modal-input:hover + svg,
 .modal-input:focus + svg {
   color: var(--accent-color);
 }
